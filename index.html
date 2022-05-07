@@ -35,12 +35,7 @@
         .pfp{
             border-radius: 100%;
         }
-        @media screen and (max-width:600px){
-            .pfp{
-            border-radius: 100%;
-            width: 40vw;
-            height: 40vw;
-        }}
+    
         .pfpBox{
             width: 100vw;
             position: absolute;
@@ -57,22 +52,47 @@
             justify-content: center;
             align-items: center;
             margin-top: 10vh;
+
+            animation: titleTextAni 2s forwards;
         }
-        @media screen and (max-width:600px){
+    @keyframes titleTextAni{
+        0% {
+            transform: translate(0,0);
+        }
+        100% {
+            transform: translate(0,4h);
+        }
+    }
+
+
+      
+    @media screen and (max-width:1300px){
+        .pfp{
+            border-radius: 100%;
+            width: 20vw;
+            height: 20vw;
+        }
+        .soc {
+            margin-top: 65vh;
+            width: 35px;
+            height: 35px;
+        }
+    }
+    @media screen and (max-width:400px){
             .pfp{
             border-radius: 100%;
-            width: 40vw;
-            height: 40vw;
+            width: 20vh;
+            height: 20vh;
         }
         .titleText{
             font-size: 22px;
         }
         .soc {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
         }
     }
-    @media screen and (max-width:1000px){
+    /* @media screen and (max-width:1000px){
         .pfp{
             border-radius: 100%;
             width: 20vw;
@@ -83,7 +103,7 @@
             width: 30px;
             height: 30px;
         }
-    }
+    } */
     </style>
 </head>
 
