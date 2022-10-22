@@ -14,6 +14,7 @@
             height: 100vh;
             background: linear-gradient(115.4deg, #312194 42.84%, #8A1616 112.69%);
             overflow: hidden;
+            cursor: none
         }
 
         @font-face {
@@ -53,8 +54,8 @@
             height: 100vh;
             background-color: black;
 
-            animation: overlayW forwards 0.8s;
-            animation-delay: 1s;
+            /* animation: overlayW forwards 0.8s;
+            animation-delay: 1s; */
         }
 
         @keyframes overlayW {
@@ -69,17 +70,6 @@
             }
         }
 
-        @keyframes titleForMainAnim {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 0.4;
-            }
-
-        }
-
         /* animation end */
         #mainView {
             position: absolute;
@@ -88,26 +78,13 @@
             width: 150vw;
             height: 150vh;
             background-color: black;
-            /* opacity: 0; */
-
-
+            opacity: 0;
+            transition: all 0.5s ease-in;
             color: white;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
 
-        }
-
-        .aboutMe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-family: "newake";
-            font-size: 3vh;
-            opacity: 0.4;
-            animation: titleForMainAnim forwards 2s;
         }
     </style>
 </head>
@@ -117,13 +94,8 @@
     <div class="overlay" style="background-color: white;animation-delay: 1.5s;"></div>
     <div class="overlay" style="animation-delay: 1.9s;">
         <div id="mainView">
-
             <div>
-
-            </div>
-
-            <div class="aboutMe">
-                <div>skakwy</div>
+                Test
             </div>
         </div>
     </div>
@@ -139,76 +111,48 @@
             skakwy
         </div>
     </div>
-
+    <!-- <div class="mainView" id="afterAnimation">
+       
+    </div> -->
     <script>
 
         debug = true
+        var delayInMilliseconds = debug ? 0 : 2100;
+        mouseEntered = [0, 0]
 
 
-        mouseIsDown = false
-        prev = []
         Promise.all(document.getElementsByClassName("overlay")[2].getAnimations().map((animation) => animation.finished)).then(() => {
             // document.body.style.width = "150vw"
             // document.body.style.height = "150vh"
-
-            document.getElementById("mainView").style.display = "flex"
-            // document.getElementById("mainView").style.animation = "mainViewAnim forwards 0.8s;"
             window.scrollTo(screen.width / 4, screen.height / 4);
-            // document.getElementById("mainView").style.opacity = 1
-
+            document.getElementById("mainView").style.opacity = 1
+            
         }
         )
-        Promise.all(document.getElementsByClassName("overlay")[2].getAnimations().map((animation) => animation.finished)).then(() => {
-            document.body.style.backgroundColor = "black"
-        })
-
-        if (debug){
-            
-            document.getElementsByClassName("titleSec")[0].style.opacity = "0"
-            document.getElementsByClassName("title")[0].style.opacity = "0"
-            for(var i = 0; i < document.getElementsByClassName("overlay").length;i++){
-                document.getElementsByClassName("overlay")[i].style.animation = ""
-            }
-        }
-        else{
-            document.body.getElementsByClassName("overlay")[2].addEventListener("animationstart", () => {
-            document.getElementsByClassName("titleSec")[0].style.opacity = "0"
-            document.getElementsByClassName("title")[0].style.opacity = "0"
-        })
-    }
-
-
-
-        document.body.onmousedown = (e) => {
-            mouseIsDown = true
+        document.body.onmouseenter = (e) => {
             mouseStart = [e.clientX, e.clientY]
-            prev = [0, 0]
-
+    
         }
-        document.body.onmouseup = () => { mouseIsDown = false }
+        document.body.onclick = () => (document.body.requestPointerLock())
+
         // cursor movement
+        prev = []
         document.body.onmousemove = function (e) {
 
+            pos = [e.clientX - mouseStart[0], e.clientY - mouseStart[1]]
 
-            if (mouseIsDown) {
+            pos = pos.map(x => x)
 
-
-                // console.log(e.clientX - mouseStart[0],  - )
-
-
-
-                pos = [mouseStart[0] - e.clientX, mouseStart[1] - e.clientY]
-
-                pos = pos.map(x => x)
-                console.log()
-                // console.log(pos[0]-prev[0])
-                window.scrollBy(pos[0] - prev[0], pos[1] - prev[1])
-                // window.scrollBy(pos[0] - prev[0], pos[1] - prev[1])
-                prev = pos
-            }
+            console.log()
+            window.scrollBy(prev[0] - pos[0], prev[1] - pos[1])
+            prev = pos
         }
 
 
+        setTimeout(function () {
+            document.getElementsByClassName("titleSec")[0].style.opacity = "0"
+            document.getElementsByClassName("title")[0].style.opacity = "0"
+        }, delayInMilliseconds);
 
     </script>
 </body>
