@@ -13,7 +13,8 @@
             width: 100vw;
             height: 100vh;
             background: linear-gradient(115.4deg, #312194 42.84%, #8A1616 112.69%);
-            overflow: hidden;
+            font-family: "newake";
+            /* overflow: hidden; */
         }
 
         @font-face {
@@ -29,7 +30,7 @@
             transform: translate(-50%, -50%);
             color: white;
             font-size: 120px;
-            font-family: "newake";
+
         }
 
         .titleSec {
@@ -39,7 +40,7 @@
             transform: translate(-50%, -50%);
             color: rgba(255, 255, 255, 0.2);
             font-size: 88px;
-            font-family: "newake";
+
 
 
 
@@ -61,11 +62,102 @@
             from {
                 width: 0vw;
                 height: 100vh;
+
             }
 
             to {
                 width: 100vw;
                 height: 100vh;
+
+            }
+        }
+
+        .view {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70vw;
+            height: 60vh;
+            background-color: gray;
+        }
+
+        .sliderLeft {
+            width: 7vw;
+            height: 7vw;
+            border: solid 1px white;
+            position: absolute;
+            border-radius: 100%;
+            top: 78%;
+            left: 1.5vw;
+        }
+
+        .sliderLeft svg {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1vw;
+            height: 2vw;
+        }
+
+        .sliderRight {
+            width: 7vw;
+            height: 7vw;
+            border: solid 1px white;
+            border-radius: 100%;
+            position: absolute;
+            top: 78%;
+            right: 1.5vw;
+        }
+
+        .sliderRight svg {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1vw;
+            height: 2vw;
+        }
+
+        .topBar {
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: white;
+            position: fixed;
+            left: 2vw;
+            margin-top: 2vh;
+        }
+
+        .topBar .name {
+
+            font-size: 2.2vh;
+
+        }
+
+        .topBar .other {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+
+        }
+
+        .imgAnimated {
+            /* animation: imagAnim 0.8 2.3 forwards; */
+            position: relative;
+            opacity: 0;
+            transition: all 0.8s ease-in-out;
+        }
+
+        @keyframes imgAnim {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
             }
         }
 
@@ -112,21 +204,11 @@
     </style>
 </head>
 
-<body>
+<body onpointermove="mouseMove(event)">
+    <!--beginning animation-->
     <div class="overlay"></div>
     <div class="overlay" style="background-color: white;animation-delay: 1.5s;"></div>
-    <div class="overlay" style="animation-delay: 1.9s;">
-        <div id="mainView">
-
-            <div>
-
-            </div>
-
-            <div class="aboutMe">
-                <div>skakwy</div>
-            </div>
-        </div>
-    </div>
+    <div class="overlay" style="animation-delay: 1.9s;"></div>
     <div class="title">skakwy</div>
     <div class="titleSec">
         <div>
@@ -139,77 +221,50 @@
             skakwy
         </div>
     </div>
-
     <script>
+        var delayInMilliseconds = 2100; 
+
+        setTimeout(function () {
+            document.getElementsByClassName("titleSec")[0].style.opacity = "0"
+            document.body.style.background = "none"
+            document.body.style.backgroundColor = "black"
+            // show images
+            for (i = 0; i < document.getElementsByClassName("imgAnimated").length; i++) {
+                console.log(i)
+                document.getElementsByClassName("imgAnimated")[i].style.opacity = "1"
+      
+                document.getElementsByClassName("imgAnimated")[i].style.left = "50%"
+                document.getElementsByClassName("imgAnimated")[i].style.top = "50%"
+                document.getElementsByClassName("imgAnimated")[i].style.transform = "translate(-50%, -50%)"
+
+            }
+            
+        })
+
 
         debug = true
+        function devMode() {
+            if (debug == true) {
+                // console.log("finsihed")
+            document.getElementById("center").style.left = "50%"
+            document.getElementById("center").style.top = "50%"
+            document.getElementById("center").style.transform = "translate(-50%, -50%)"
 
-
-        mouseIsDown = false
-        prev = []
-        Promise.all(document.getElementsByClassName("overlay")[2].getAnimations().map((animation) => animation.finished)).then(() => {
-            // document.body.style.width = "150vw"
-            // document.body.style.height = "150vh"
-
-            document.getElementById("mainView").style.display = "flex"
-            // document.getElementById("mainView").style.animation = "mainViewAnim forwards 0.8s;"
-            window.scrollTo(screen.width / 4, screen.height / 4);
-            // document.getElementById("mainView").style.opacity = 1
-
-        }
-        )
-        Promise.all(document.getElementsByClassName("overlay")[2].getAnimations().map((animation) => animation.finished)).then(() => {
-            document.body.style.backgroundColor = "black"
-        })
-
-        if (debug){
-            
-            document.getElementsByClassName("titleSec")[0].style.opacity = "0"
-            document.getElementsByClassName("title")[0].style.opacity = "0"
-            for(var i = 0; i < document.getElementsByClassName("overlay").length;i++){
-                document.getElementsByClassName("overlay")[i].style.animation = ""
+            document.body.style.width = "180vw"
+            document.body.style.height = "180vh"
+            document.getElementById('center').scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            });
+            // mouseSave = [document.getElementById("center").scrollLeft, document.getElementById("center").scrollRight]
+            for (i = 0; i < document.getElementsByClassName("overlay").length; i++) {
+                // console.log(i)
+                document.getElementsByClassName("overlay")[i].style.opacity = "0"
             }
-        }
-        else{
-            document.body.getElementsByClassName("overlay")[2].addEventListener("animationstart", () => {
-            document.getElementsByClassName("titleSec")[0].style.opacity = "0"
             document.getElementsByClassName("title")[0].style.opacity = "0"
-        })
-    }
-
-
-
-        document.body.onmousedown = (e) => {
-            mouseIsDown = true
-            mouseStart = [e.clientX, e.clientY]
-            prev = [0, 0]
-
-        }
-        document.body.onmouseup = () => { mouseIsDown = false }
-        // cursor movement
-        document.body.onmousemove = function (e) {
-
-
-            if (mouseIsDown) {
-
-
-                // console.log(e.clientX - mouseStart[0],  - )
-
-
-
-                pos = [mouseStart[0] - e.clientX, mouseStart[1] - e.clientY]
-
-                pos = pos.map(x => x)
-                console.log()
-                // console.log(pos[0]-prev[0])
-                window.scrollBy(pos[0] - prev[0], pos[1] - prev[1])
-                // window.scrollBy(pos[0] - prev[0], pos[1] - prev[1])
-                prev = pos
-            }
-        }
-
-
-
+        }, delayInMilliseconds);
+       
     </script>
 </body>
 
