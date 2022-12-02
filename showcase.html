@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+        :root {
+            --sideBarInnerWidth: 80%;
+            --leftMargin: 15px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+
+        .sideBar {
+            width: 18vw;
+            height: 100vh;
+            border-right: 1px solid #ECEDEF;
+            background-color: #fefefe;
+            display: flex;
+            flex-direction: column;
+
+
+        }
+
+        .sideBar .top {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: var(--sideBarInnerWidth);
+            font-weight: 600;
+            font-size: 25px;
+            margin-left: var(--leftMargin);
+        }
+
+        .top .lightModeBtn {
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+            border: 1px solid #ECEDEF;
+            border-radius: 3px;
+            padding: 3px;
+            margin-right: 10px;
+        }
+
+        .sideBar .topContainer {
+            border-bottom: 1px solid #ECEDEF;
+            display: flex;
+            justify-content: center;
+
+            height: 6vh;
+        }
+
+        .sideBar .middleContainer {
+            min-height: 0;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+
+        }
+
+        .sideBar .middle {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            width: var(--sideBarInnerWidth);
+            margin-left: var(--leftMargin);
+
+        }
+
+        .sideBarSearch {
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 5px;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ECEDEF;
+            border-radius: 3px;
+            box-shadow: #ECEDEF 0px 1px 0px 0px;
+
+        }
+
+        .sideBarSearch::placeholder {
+            color: #cbcfd4;
+
+        }
+
+        .sideBarSearch:focus {
+            outline: none;
+        }
+
+        .middle .list {
+            overflow-y: scroll;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 15px;
+            color: #687583;
+            font-size: 17px;
+
+        }
+
+        .list div {
+            margin-top: 6px
+        }
+
+        .mainWindow {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-left: 50px;
+            padding-top: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="sideBar">
+            <div class="topContainer">
+                <div class="top">
+                    <svg width="26" height="26" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.94469 14.7263C3.73185 14.6879 4.17392 14.6948 4.01054 14.6455C3.76205 14.5702 3.57808 14.4497 3.41608 14.2567C3.08934 13.8692 3.03854 13.3229 3.28703 12.8725C3.34332 12.7684 3.66046 12.4508 7.6432 8.47352C10.0059 6.1159 11.9801 4.1567 12.0309 4.1211C12.2355 3.97187 12.4579 3.90204 12.7256 3.90204C12.937 3.90204 13.0812 3.93627 13.2734 4.03074C13.585 4.18545 13.8033 4.44284 13.9022 4.77965C13.9365 4.89465 13.9434 4.94805 13.9489 5.16847C13.9571 5.44914 13.9983 11.9319 13.9997 13.0149C14.001 13.6652 13.9997 13.709 13.9695 13.8226C13.8335 14.3456 13.386 14.7112 12.8382 14.7495C12.775 14.7523 11.0232 14.7427 8.94469 14.7263Z"
+                            fill="#252B32" />
+                        <path
+                            d="M1.13572 11.5883C0.727974 11.5321 0.369651 11.2884 0.18843 10.9434C0.0964467 10.7668 0.0580059 10.6093 0.0511412 10.3547C0.0442768 10.1096 0.00171748 3.61042 0.000344578 2.48501C-0.00102829 1.82647 0.00034458 1.78266 0.0305482 1.67039C0.145871 1.2309 0.4836 0.892731 0.922923 0.780464C1.0355 0.750344 1.08218 0.748975 1.73979 0.750344C2.83261 0.751713 9.36479 0.792786 9.6229 0.801001C9.81785 0.806477 9.87688 0.814692 9.98946 0.847551C10.3258 0.947496 10.5867 1.16519 10.7404 1.47461C10.8365 1.66765 10.8695 1.81141 10.8695 2.02225C10.8695 2.2728 10.805 2.49049 10.6718 2.69038C10.6073 2.78759 2.08438 11.287 1.96906 11.3706C1.73567 11.5403 1.4103 11.6252 1.13572 11.5883Z"
+                            fill="#252B32" />
+                    </svg>
+
+                    <p style="margin-left: 10px;">Cece api</p>
+                </div>
+            </div>
+            <div class="middleContainer">
+                <div class="middle">
+                    <input class="sideBarSearch" placeholder="Jump to" />
+                    <div class="list">
+                        <div>Introduction</div>
+                        <div style="color:#0e91c0">Getting Started
+                            <div style="margin-left: 10px;  color: #687583;">Installation</div>
+                            <div style="margin-left: 10px;  color: #687583;">Quick Start</div>
+                        </div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                        <div>Test</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mainWindow">
+            <h1>idk api</h1>
+            <h4 style="margin-top:0;color:#687583">Lorem ipsum dolor sit amet, consectetur adipisicing elit </h4>
+        </div>
+    </div>
+    <script>
+        function turnLightButtonOn() {
+            document.getElementsByClassName("lightModeBtn")[0].style.display = "flex";
+        }
+        function turnLightButtonOff() {
+            document.getElementsByClassName("lightModeBtn")[0].style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
