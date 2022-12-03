@@ -48,7 +48,7 @@
     </div>
     <script>
         async function loadSites() {
-            let response = await fetch("docs.json");
+            let response = await fetch("https://github.com/skakwy/cece-api-documentation/blob/main/docs.json");
             let data = await response.json();
             // set siteBarList
             let sideBarList = document.getElementById("sideBarList");
@@ -86,7 +86,7 @@
             }
         }
         async function loadContent() {
-            let response = await fetch("docs.json");
+            let response = await fetch("https://github.com/skakwy/cece-api-documentation/blob/main/docs.json");
             let data = await response.json();
             for (i = 0; i < data["content"].length; i++) {
                 //title of section
