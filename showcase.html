@@ -6,140 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+    <link rel="stylesheet" href="style.css" />
 
-        :root {
-            --sideBarInnerWidth: 80%;
-            --leftMargin: 15px;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-
-        }
-
-        .container {
-            display: flex;
-            flex-direction: row;
-            height: 100vh;
-        }
-
-
-        .sideBar {
-            width: 18vw;
-            height: 100vh;
-            border-right: 1px solid #ECEDEF;
-            background-color: #fefefe;
-            display: flex;
-            flex-direction: column;
-
-
-        }
-
-        .sideBar .top {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: var(--sideBarInnerWidth);
-            font-weight: 600;
-            font-size: 25px;
-            margin-left: var(--leftMargin);
-        }
-
-        .top .lightModeBtn {
-            display: none;
-            align-items: flex-end;
-            justify-content: center;
-            border: 1px solid #ECEDEF;
-            border-radius: 3px;
-            padding: 3px;
-            margin-right: 10px;
-        }
-
-        .sideBar .topContainer {
-            border-bottom: 1px solid #ECEDEF;
-            display: flex;
-            justify-content: center;
-
-            height: 6vh;
-        }
-
-        .sideBar .middleContainer {
-            min-height: 0;
-
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-
-
-        }
-
-        .sideBar .middle {
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-            width: var(--sideBarInnerWidth);
-            margin-left: var(--leftMargin);
-
-        }
-
-        .sideBarSearch {
-
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 5px;
-            font-size: 16px;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            border: 1px solid #ECEDEF;
-            border-radius: 3px;
-            box-shadow: #ECEDEF 0px 1px 0px 0px;
-
-        }
-
-        .sideBarSearch::placeholder {
-            color: #cbcfd4;
-
-        }
-
-        .sideBarSearch:focus {
-            outline: none;
-        }
-
-        .middle .list {
-            overflow-y: scroll;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 15px;
-            color: #687583;
-            font-size: 17px;
-
-        }
-
-        .list div {
-            margin-top: 6px
-        }
-
-        .mainWindow {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding-left: 50px;
-            padding-top: 20px;
-
-        }
-    </style>
 </head>
 
 <body>
@@ -150,101 +18,225 @@
                 <div class="top">
                     <svg width="26" height="26" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M8.94469 14.7263C3.73185 14.6879 4.17392 14.6948 4.01054 14.6455C3.76205 14.5702 3.57808 14.4497 3.41608 14.2567C3.08934 13.8692 3.03854 13.3229 3.28703 12.8725C3.34332 12.7684 3.66046 12.4508 7.6432 8.47352C10.0059 6.1159 11.9801 4.1567 12.0309 4.1211C12.2355 3.97187 12.4579 3.90204 12.7256 3.90204C12.937 3.90204 13.0812 3.93627 13.2734 4.03074C13.585 4.18545 13.8033 4.44284 13.9022 4.77965C13.9365 4.89465 13.9434 4.94805 13.9489 5.16847C13.9571 5.44914 13.9983 11.9319 13.9997 13.0149C14.001 13.6652 13.9997 13.709 13.9695 13.8226C13.8335 14.3456 13.386 14.7112 12.8382 14.7495C12.775 14.7523 11.0232 14.7427 8.94469 14.7263Z"
-                            fill="#252B32" />
+                            d="M8.94469 14.7263C3.73185 14.6879 4.17392 14.6948 4.01054 14.6455C3.76205 14.5702 3.57808 14.4497 3.41608 14.2567C3.08934 13.8692 3.03854 13.3229 3.28703 12.8725C3.34332 12.7684 3.66046 12.4508 7.6432 8.47352C10.0059 6.1159 11.9801 4.1567 12.0309 4.1211C12.2355 3.97187 12.4579 3.90204 12.7256 3.90204C12.937 3.90204 13.0812 3.93627 13.2734 4.03074C13.585 4.18545 13.8033 4.44284 13.9022 4.77965C13.9365 4.89465 13.9434 4.94805 13.9489 5.16847C13.9571 5.44914 13.9983 11.9319 13.9997 13.0149C14.001 13.6652 13.9997 13.709 13.9695 13.8226C13.8335 14.3456 13.386 14.7112 12.8382 14.7495C12.775 14.7523 11.0232 14.7427 8.94469 14.7263Z" />
                         <path
-                            d="M1.13572 11.5883C0.727974 11.5321 0.369651 11.2884 0.18843 10.9434C0.0964467 10.7668 0.0580059 10.6093 0.0511412 10.3547C0.0442768 10.1096 0.00171748 3.61042 0.000344578 2.48501C-0.00102829 1.82647 0.00034458 1.78266 0.0305482 1.67039C0.145871 1.2309 0.4836 0.892731 0.922923 0.780464C1.0355 0.750344 1.08218 0.748975 1.73979 0.750344C2.83261 0.751713 9.36479 0.792786 9.6229 0.801001C9.81785 0.806477 9.87688 0.814692 9.98946 0.847551C10.3258 0.947496 10.5867 1.16519 10.7404 1.47461C10.8365 1.66765 10.8695 1.81141 10.8695 2.02225C10.8695 2.2728 10.805 2.49049 10.6718 2.69038C10.6073 2.78759 2.08438 11.287 1.96906 11.3706C1.73567 11.5403 1.4103 11.6252 1.13572 11.5883Z"
-                            fill="#252B32" />
+                            d="M1.13572 11.5883C0.727974 11.5321 0.369651 11.2884 0.18843 10.9434C0.0964467 10.7668 0.0580059 10.6093 0.0511412 10.3547C0.0442768 10.1096 0.00171748 3.61042 0.000344578 2.48501C-0.00102829 1.82647 0.00034458 1.78266 0.0305482 1.67039C0.145871 1.2309 0.4836 0.892731 0.922923 0.780464C1.0355 0.750344 1.08218 0.748975 1.73979 0.750344C2.83261 0.751713 9.36479 0.792786 9.6229 0.801001C9.81785 0.806477 9.87688 0.814692 9.98946 0.847551C10.3258 0.947496 10.5867 1.16519 10.7404 1.47461C10.8365 1.66765 10.8695 1.81141 10.8695 2.02225C10.8695 2.2728 10.805 2.49049 10.6718 2.69038C10.6073 2.78759 2.08438 11.287 1.96906 11.3706C1.73567 11.5403 1.4103 11.6252 1.13572 11.5883Z" />
                     </svg>
 
-                    <p style="margin-left: 10px;">Cece api</p>
+                    <div class="apiName">Cece api</div>
                 </div>
             </div>
             <div class="middleContainer">
                 <div class="middle">
                     <input class="sideBarSearch" placeholder="Jump to" />
-                    <div class="list">
-                        <div>Introduction</div>
-                        <div style="color:#0e91c0">Getting Started
-                            <div style="margin-left: 10px;  color: #687583;">Installation</div>
-                            <div style="margin-left: 10px;  color: #687583;">Quick Start</div>
-                        </div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
-                        <div>Test</div>
+                    <div id="sideBarList" class="list">
+
                     </div>
                 </div>
+
             </div>
         </div>
 
         <div class="mainWindow">
-            <h1>idk api</h1>
-            <h4 style="margin-top:0;color:#687583">Lorem ipsum dolor sit amet, consectetur adipisicing elit </h4>
+            <div class="mainWindowContainer" id="mainWindowContainer">
+                
+                <!-- <h1>Getting Started</h1>
+            <h4 style="margin-top:0;color:#687583">Lorem ipsum dolor sit amet, consectetur adipisicing elit </h4> -->
+          
+            </div>
         </div>
     </div>
     <script>
-        function turnLightButtonOn() {
-            document.getElementsByClassName("lightModeBtn")[0].style.display = "flex";
+        async function loadSites() {
+            let response = await fetch("docs.json");
+            let data = await response.json();
+            // set siteBarList
+            let sideBarList = document.getElementById("sideBarList");
+            for (i = 0; i < data["content"].length; i++) {
+                //container
+                let listChild = document.createElement("div");
+                listChild.classList.add("listChild");
+                //topic button
+                let button = document.createElement("button");
+                button.innerHTML = data["content"][i]["topic"];
+                button.addEventListener("click", parsedObj => {
+                    document.getElementById(parsedObj.currentTarget.innerHTML).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+                listChild.appendChild(button);
+                //create children
+                let childrenList = document.createElement("div");
+
+                for (ii = 0; ii < data["content"][i]["content"].length; ii++) {
+                    let child = document.createElement("button");
+                    child.innerHTML = data["content"][i]["content"][ii]["header"];
+                    child.classList.add("children");
+                    child.addEventListener("click", parsedObj => {
+                        document.getElementById(parsedObj.currentTarget.innerHTML).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                    listChild.appendChild(child)
+                }
+
+
+                sideBarList.appendChild(listChild);
+
+            }
         }
-        function turnLightButtonOff() {
-            document.getElementsByClassName("lightModeBtn")[0].style.display = "none";
+        async function loadContent() {
+            let response = await fetch("docs.json");
+            let data = await response.json();
+            for (i = 0; i < data["content"].length; i++) {
+                //title of section
+                topicContainer = document.createElement("div");
+                topicDiv = document.createElement("div");
+                topicDiv.classList.add("topic");
+                topicDiv.innerHTML = data["content"][i]["topic"];
+                topicDiv.id = data["content"][i]["topic"];
+                topicContainer.appendChild(topicDiv);
+                //description of section
+                descriptionDiv = document.createElement("div");
+                descriptionDiv.classList.add("titleHeaderDescription");
+                descriptionDiv.innerHTML = data["content"][i]["description"];
+                topicContainer.appendChild(descriptionDiv);
+                //content of section
+                for (ii = 0; ii < data["content"][i]["content"].length; ii++) {
+                    tempCurrent = data["content"][i]["content"][ii];
+                    contentOfTopic = document.createElement("div");
+                    contentOfTopic.classList.add("contentOfTopic");
+                    //content header
+                    contentHeader = document.createElement("div");
+                    contentHeader.classList.add("header");
+                    contentHeader.innerHTML = tempCurrent["header"];
+                    contentHeader.id = tempCurrent["header"];
+                    contentOfTopic.appendChild(contentHeader);
+                    //content path
+                    contentPath = document.createElement("div");
+                    contentPath.classList.add("pathForReqeuest");
+                    contentPath.innerHTML = "<span>" + tempCurrent["method"] + "</span>" + "<div>" + tempCurrent["path"] + "</div>";
+                    contentOfTopic.appendChild(contentPath);
+                    //content description
+                    contentDescription = document.createElement("div");
+                    contentDescription.classList.add("description");
+                    contentDescription.innerHTML = tempCurrent["description"];
+                    contentOfTopic.appendChild(contentDescription);
+                    //content request
+                    contentRequest = document.createElement("div");
+                    contentRequest.classList.add("requestClass");
+                    contentRequest.innerHTML = "Request";
+                    contentOfTopic.appendChild(contentRequest);
+                    //content parameter container
+                    contentParameterContainer = document.createElement("div");
+                    contentParameterContainer.classList.add("parameterContainer");
+                    //content parameter
+                    parameter = document.createElement("div");
+                    parameter.classList.add("parameter");
+                    //content parameter names
+                    parameterNames = document.createElement("div");
+                    parameterNames.classList.add("parameterNames");
+                    for (iii = 0; iii < tempCurrent["bodyParameters"].length; iii++) {
+                        parameterName = document.createElement("div");
+                        parameterName.innerHTML = tempCurrent["bodyParameters"][iii]["name"];
+                        parameterNames.appendChild(parameterName);
+                    }
+                    parameter.appendChild(parameterNames);
+                    //content parameter input
+                    parameterInput = document.createElement("div");
+                    parameterInput.classList.add("parameterInput");
+                    for (iii = 0; iii < tempCurrent["bodyParameters"].length; iii++) {
+                        parameterInputField = document.createElement("input");
+                        parameterInputField.placeholder = tempCurrent["bodyParameters"][iii]["type"];
+                        parameterInput.appendChild(parameterInputField);
+                    }
+                    parameter.appendChild(parameterInput);
+                    contentParameterContainer.appendChild(parameter);
+                    //content parameter container buttons
+                    parameterContainerButtons = document.createElement("div");
+                    parameterContainerButtons.classList.add("parameterContaineButtons");
+                    //content parameter container clear button
+                    clearButton = document.createElement("button");
+                    clearButton.classList.add("clearButton");
+                    clearButton.innerHTML = "Clear";
+                    parameterContainerButtons.appendChild(clearButton);
+                    //content parameter container try button
+                    tryButton = document.createElement("button");
+                    tryButton.classList.add("tryButton");
+                    tryButton.innerHTML = "Try";
+
+                    tryButton.addEventListener("click", (parsedObj) => {
+                        let parent = parsedObj.currentTarget.parentElement.parentElement;
+                        console.log(parent.parentElement.getElementsByClassName("pathForReqeuest")[0].getElementsByTagName("div")[0])
+                        let inputFields = parent.getElementsByClassName("parameterInput")[0].children
+                        let names = parent.getElementsByClassName("parameterNames")[0].children
+                        let method = parent.parentElement.getElementsByClassName("pathForReqeuest")[0].getElementsByTagName("span")[0].innerHTML
+                        let path = parent.parentElement.getElementsByClassName("pathForReqeuest")[0].getElementsByTagName("div")[0].innerHTML
+                        let body = {};
+                        for (i = 0; i < inputFields.length; i++) {
+
+                            body[names[i].innerHTML] = inputFields[i].value;
+                        }
+                        console.log(body)
+                        fetch("https://google.com" + path, body = body, method = method)
+
+
+                    })
+
+                    parameterContainerButtons.appendChild(tryButton);
+                    contentParameterContainer.appendChild(parameterContainerButtons);
+
+
+                    contentOfTopic.appendChild(contentParameterContainer);
+                    topicContainer.style.marginBottom = "10vh";
+                    responseTitle = document.createElement("div");
+                    responseTitle.classList.add("requestClass");
+                    responseTitle.innerHTML = "Response";
+                    contentOfTopic.appendChild(responseTitle);
+                    //response container
+                    responseContainer = document.createElement("div");
+                    responseContainer.classList.add("responseContainer");
+                    //response text container 
+                    responseTextContainer = document.createElement("div");
+                    responseTextContainer.classList.add("responseTextContainer");
+                    //response copy button
+                    responseCopyButton = document.createElement("button");
+                    responseCopyButton.classList.add("copyButton");
+                    responseCopyButton.innerHTML = "Copy";
+                    responseCopyButton.addEventListener("click", (parsedObj) => {
+                        let parent = parsedObj.currentTarget.parentElement.parentElement;
+                        let text = parent.getElementsByClassName("responseTextContainer")[0].getElementsByClassName("responseText")[0].innerHTML;
+                        navigator.clipboard.writeText(text);
+                    })
+                    responseTextContainer.appendChild(responseCopyButton);
+                    //response text
+                    responseText = document.createElement("code");
+                    responseText.classList.add("responseText");
+                    responseText.innerHTML = JSON.stringify(data["content"][i]["content"][ii]["response"],null, 2)
+                    responseTextContainer.appendChild(responseText);
+                    responseContainer.appendChild(responseTextContainer);
+                    contentOfTopic.appendChild(responseContainer);
+                    
+                    topicContainer.appendChild(contentOfTopic);
+                }
+           
+
+
+                document.getElementById("mainWindowContainer").appendChild(topicContainer);
+            }
         }
+        loadSites()
+        loadContent()
+
+
+
+        // child.addEventListener("click", parsedObj => {
+        //                 document.getElementById(parsedObj.currentTarget.innerHTML).scrollIntoView({
+        //                     behavior: 'smooth'
+        //                 });
+        //             });
+
+
     </script>
 </body>
 
