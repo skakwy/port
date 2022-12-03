@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+:root {
+    --sideBarInnerWidth: 80%;
+    --leftMargin: 15px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #687583;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.apiName {
+    margin-left: 10px;
+}
+
+.sideBar {
+    width: 18vw;
+    height: 100vh;
+    border-right: 1px solid #ECEDEF;
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.sideBar .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: var(--sideBarInnerWidth);
+    font-weight: 600;
+    font-size: 25px;
+    margin-left: var(--leftMargin);
+}
+
+.top svg {
+    fill: #252B32;
+}
+
+.top .lightModeBtn {
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    border: 1px solid #ECEDEF;
+    border-radius: 3px;
+    padding: 3px;
+    margin-right: 10px;
+}
+
+.sideBar .topContainer {
+    border-bottom: 1px solid #ECEDEF;
+    display: flex;
+    justify-content: center;
+
+    height: 6vh;
+}
+
+.sideBar .middleContainer {
+    min-height: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+.sideBar .middle {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: var(--sideBarInnerWidth);
+    margin-left: var(--leftMargin);
+
+}
+
+.sideBarSearch {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ECEDEF;
+    border-radius: 3px;
+    box-shadow: #ECEDEF 0px 1px 0px 0px;
+
+}
+
+.sideBarSearch::placeholder {
+    color: #cbcfd4;
+
+}
+
+.sideBarSearch:focus {
+    outline: none;
+}
+
+.middle .list {
+    overflow-y: scroll;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+    color: #687583;
+
+}
+
+
+
+.mainWindow {
+    width: 100%;
+    height: 100vh;
+    overflow-y:scroll;
+    padding-top: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.topicContainer{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+}
+.mainWindowContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    width: 90%
+}
+
+.listChild {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.listChild button {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    color: #687583;
+    text-align: start;
+    margin-top: 6px;
+    padding-left: 0px;
+    cursor: pointer;
+}
+
+.children {
+    margin-left: 10px;
+}
+
+.topic {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.titleHeaderDescription {
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 20px;
+    /* border-bottom: solid 2px #3e3f40; */
+}
+
+.contentOfTopic {
+    display: flex;
+    flex-direction: column;
+}
+
+.contentOfTopic .header {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.pathForReqeuest {
+    font-weight: 500;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.pathForReqeuest span {
+    color: #80b6f9;
+}
+
+.description {
+    margin-top: 10px;
+}
+
+.requestClass {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.parameterContainer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.parameter input {
+    font-size: 18px;
+    padding: 6px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #d3d3d3;
+    box-sizing:border-box;
+    border-radius: 3px;
+}
+
+.parameter{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+.parameterNames{
+    gap:10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.parameterNames div {
+    padding: 6px;
+    padding-left: 0px;
+}
+.parameterInput{
+    flex: 1;
+    gap:10px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.parameterContainerChild input:focus {
+    outline: none;
+}
+
+.parameterContaineButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 80%;
+    gap: 10px;
+    margin-top: 10px;
+
+}
+
+.clearButton {
+    border: none;
+    background-color: #EA5959;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    padding: 6px;
+    width: 80px;
+    border-radius: 3px;
+}
+
+.tryButton {
+    border: none;
+    background-color: #71E97D;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    padding: 6px;
+    width: 80px;
+    border-radius: 3px;
+}
+.copyButton1{
+    border: none;
+    background-color: #e77347;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    padding: 6px;
+    width: 80px;
+    border-radius: 3px;
+}
+.responseTextContainer {
+    /* border: 0.1px solid #999999; */
+    margin-bottom: 20px;
+    width: 80%;
+
+}
+.responseText{
+    color: #d3d3d3;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.copyButton{
+    padding: 6px;
+    width: 60px;
+    background-color: #e77347;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    float: right;
+    cursor: pointer;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1e1e1e;
+        color: #999999;
+    }
+
+    /* d3d3d3 */
+
+    .sideBar {
+        background-color: #1d1d1d;
+        border: none;
+    }
+
+    .sideBar .topContainer {
+        border: none;
+    }
+
+    .apiName {
+        color: white;
+    }
+
+    .top svg {
+        fill: white;
+    }
+
+    .sideBarSearch {
+        background-color: #3e3f40;
+        border: 1px solid #3e3f40;
+        box-shadow: #3e3f40 0px 1px 0px 0px;
+    }
+
+    .listChild button {
+        color: #d3d3d3;
+    }
+
+    .topic {
+        color: white;
+    }
+
+    .requestClass {
+        color: #d3d3d3;
+    }
+
+    .parameter input {
+        background-color: #3e3f40;
+        color: #d3d3d3;
+    }
+
+    .tryButton {
+        background-color: #419759;
+        color: #d3d3d3;
+    }
+
+    .clearButton {
+        color: #d3d3d3;
+        background-color: #974141;
+    }
+    .contentOfTopic .header {
+        color: #d3d3d3;
+    }
+    .parameter input {
+        border: none;
+    }
+
+}
+
+
+@media (max-width:480px) {
+    .sideBar{
+        display: none;
+    }
+}
