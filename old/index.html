@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0" />  -->
+    <title>Document</title>
+    <style>
+        /* for animation */
+
+
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(115.4deg, #312194 42.84%, #8A1616 112.69%);
+            overflow: hidden;
+
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+        @font-face {
+            font-family: "newake";
+            src: url("newake.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: "uniSans";
+            src: url("uni-sans.heavy-caps.otf") format("opentype");
+        }
+
+        /*center div*/
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 120px;
+            font-family: "newake";
+        }
+
+        .titleSec {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 88px;
+            font-family: "newake";
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0vw;
+            height: 100vh;
+            background-color: black;
+
+            animation: overlayW forwards 0.8s;
+            animation-delay: 1s;
+        }
+
+        @keyframes overlayW {
+            from {
+                width: 0vw;
+                height: 100vh;
+
+            }
+
+            to {
+                width: 100vw;
+                height: 100vh;
+
+            }
+        }
+
+        .view {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70vw;
+            height: 60vh;
+            background-color: gray;
+        }
+
+        .sliderLeft {
+            width: 7vw;
+            height: 7vw;
+            border: solid 1px white;
+            position: absolute;
+            border-radius: 100%;
+            top: 78%;
+            left: 1.5vw;
+        }
+
+        .sliderLeft svg {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1vw;
+            height: 2vw;
+        }
+
+        .sliderRight {
+            width: 7vw;
+            height: 7vw;
+            border: solid 1px white;
+            border-radius: 100%;
+            position: absolute;
+            top: 78%;
+            right: 1.5vw;
+        }
+
+        .sliderRight svg {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1vw;
+            height: 2vw;
+        }
+
+        .topBar {
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: white;
+            position: fixed;
+            left: 2vw;
+            margin-top: 2vh;
+        }
+
+        .topBar .name {
+
+            font-size: 2.2vh;
+
+        }
+
+        .topBar .other {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+
+        }
+
+        .imgAnimated {
+            /* animation: imagAnim 0.8 2.3 forwards; */
+            position: relative;
+            opacity: 0;
+            transition: all 0.8s ease-in-out;
+        }
+
+        @keyframes imgAnim {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes titleForMainAnim {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes mainAnimRemove {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+
+        }
+
+        /* animation end */
+        #mainView {
+            position: absolute;
+            top: 0vh;
+            left: 0vw;
+            width: 150vw;
+            height: 150vh;
+            background-color: black;
+            /* opacity: 0; */
+
+
+            color: white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .aboutMe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: "newake";
+            font-size: 5vh;
+            opacity: 1;
+            text-align: center;
+            animation: titleForMainAnim forwards 2s;
+        }
+
+        .aboutMe .logos {
+            display: flex;
+            flex-direction: row;
+            gap: 2vw;
+            margin-top: 2vh;
+
+        }
+
+        .aboutMe .logos svg {
+            transition: all 0.5s ease-in-out;
+            fill: white;
+        }
+
+        .aboutMe .logos svg:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+            transition: all 0.5s ease-in-out;
+        }
+
+        #discordPopUp {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30vw;
+            height: 30vh;
+            background-color: #1E1E1E;
+            display: none;
+            gap: 4vw;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
+            animation: titleForMainAnim forwards 0.5s;
+        }
+
+        @media screen and (max-width: 769px) {
+            /* .overlay {
+                animation: 0;
+
+            } */
+
+            #mainView {
+                width: 100vw;
+                height: 100vh;
+            }
+
+            #discordPopUp {
+                width: 70vw;
+                height: 30vh;
+                font-size: 1vh;
+            }
+
+            #discordPopUp img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .aboutMe {
+                position: flex;
+
+
+            }
+
+            .title {
+                font-size: 60px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .titleSec {
+                font-size: 44px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--beginning animation-->
+    <div class="overlay"></div>
+    <div class="overlay" style="background-color: white;animation-delay: 1.5s;"></div>
+    <div class="overlay" style="animation-delay: 1.9s;">
+        <div id="mainView">
+
+            <div class="aboutMe">
+                <div>skakwy</div>
+                <div class="logos">
+                    <svg onclick="window.open('https://github.com/skakwy')" fill="white"
+                        xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    <svg id="discordLogo" viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg"
+                        fill="white" fill-rule="evenodd">
+                        <path
+                            d="M12 0c-6.626 0-12 5.372-12 12 0 6.627 5.374 12 12 12 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm3.248 18.348l-.371-1.295.896.833.847.784 1.505 1.33v-12.558c0-.798-.644-1.442-1.435-1.442h-9.38c-.791 0-1.435.644-1.435 1.442v9.464c0 .798.644 1.442 1.435 1.442h7.938zm-1.26-3.206l-.462-.567c.917-.259 1.267-.833 1.267-.833-.287.189-.56.322-.805.413-.35.147-.686.245-1.015.301-.672.126-1.288.091-1.813-.007-.399-.077-.742-.189-1.029-.301-.161-.063-.336-.14-.511-.238l-.028-.016-.007-.003-.028-.016-.028-.021-.196-.119s.336.56 1.225.826l-.469.581c-1.547-.049-2.135-1.064-2.135-1.064 0-2.254 1.008-4.081 1.008-4.081 1.008-.756 1.967-.735 1.967-.735l.07.084c-1.26.364-1.841.917-1.841.917l.413-.203c.749-.329 1.344-.42 1.589-.441l.119-.014c.427-.056.91-.07 1.414-.014.665.077 1.379.273 2.107.672 0 0-.553-.525-1.743-.889l.098-.112s.959-.021 1.967.735c0 0 1.008 1.827 1.008 4.081 0 0-.573.977-2.142 1.064zm-.7-3.269c-.399 0-.714.35-.714.777 0 .427.322.777.714.777.399 0 .714-.35.714-.777 0-.427-.315-.777-.714-.777zm-2.555 0c-.399 0-.714.35-.714.777 0 .427.322.777.714.777.399 0 .714-.35.714-.777.007-.427-.315-.777-.714-.777z" />
+                    </svg>
+                    <svg onclick="window.open('mailto:skakwy@outlook.com?subject=subject&body=body');" fill="white"
+                        xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z" />
+                    </svg>
+                </div>
+            </div>
+            <div id="discordPopUp">
+                <img style="border-radius: 100%;"
+                    src="https://cdn.discordapp.com/avatars/416575841573535756/a6699a59289d1bcfcf8463c3dbed9e1b.png?size=240"
+                    width="96" height="96" />
+                <div style="color:white;font-size: 20px;font-family: 'Open Sans', sans-serif;font-weight: bold;">
+                    skakwy#4586</div>
+            </div>
+        </div>
+    </div>
+    <div class="title">skakwy</div>
+    <div class="titleSec">
+        <div>
+            skakwy
+        </div>
+        <div>
+            skakwy
+        </div>
+        <div>
+            skakwy
+        </div>
+    </div>
+
+    <script>
+
+        
+        window.onresize();
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || isIpadOS()) {
+            // true for mobile device
+            mobile = true
+            document.getElementById("mainView").style.width = "100vw"
+            document.getElementById("mainView").style.height = "100vh"
+        } else {
+            mobile = false
+        }
+        debug = false
+        discordPopUpIsFocused = false
+        discordBtnClicked = false
+        mouseIsDown = false
+        prev = []
+        document.getElementById("discordLogo").addEventListener("click", () => (discordPopUp(true)))
+        // !mobile ? document.getElementById("discordLogo").addEventListener("click", () => (discordPopUp(true))) : document.getElementById("discordLogo").addEventListener("touchstart", () => (console.log("tes")))
+
+        function isIpadOS() {
+            return navigator.maxTouchPoints &&
+                navigator.maxTouchPoints > 2 &&
+                /MacIntel/.test(navigator.platform);
+        }
+
+        function discordPopUp(arg) {
+            if (arg) {
+                document.getElementById("discordPopUp").style.display = "flex"
+            }
+            else {
+                document.getElementById("discordPopUp").style.animation = "mainAnimRemove forwards 0.5s"
+                Promise.all(document.getElementById("discordPopUp").getAnimations().map((animation) => animation.finished)).then(() => {
+                    document.getElementById("discordPopUp").style.display = "none"
+                    document.getElementById("discordPopUp").style.animation = "titleForMainAnim forwards 0.5s"
+
+                })
+            }
+
+
+
+            discordPopUpIsFocused = arg
+            // discordBtnClicked = true
+        }
+        Promise.all(document.getElementsByClassName("overlay")[2].getAnimations().map((animation) => animation.finished)).then(() => {
+            // document.body.style.width = "150vw"
+            // document.body.style.height = "150vh"
+
+            document.getElementById("mainView").style.display = "flex"
+            // document.getElementById("mainView").style.animation = "mainViewAnim forwards 0.8s;"
+            window.scrollTo(screen.width / 4, screen.height / 4);
+            // document.getElementById("mainView").style.opacity = 1
+
+        }
+        )
+        Promise.all(document.getElementsByClassName("overlay")[2].getAnimations().map((animation) => animation.finished)).then(() => {
+            document.body.style.backgroundColor = "black"
+        })
+
+        if (debug) {
+
+            document.getElementsByClassName("titleSec")[0].style.opacity = "0"
+            document.getElementsByClassName("title")[0].style.opacity = "0"
+            for (var i = 0; i < document.getElementsByClassName("overlay").length; i++) {
+                document.getElementsByClassName("overlay")[i].style.animation = ""
+            }
+        }
+        else {
+            document.body.getElementsByClassName("overlay")[2].addEventListener("animationstart", () => {
+                document.getElementsByClassName("titleSec")[0].style.display = "none"
+                document.getElementsByClassName("title")[0].style.display = "none"
+            })
+        }
+        document.getElementById("discordPopUp").onmousedown = () => (discordBtnClicked = true)
+        document.getElementById("discordPopUp").onmouseup = () => (discordBtnClicked = false)
+
+        if (mobile) {
+            document.body.addEventListener("ontouchstart", () => {
+                if (discordPopUpIsFocused && !discordBtnClicked) { // && !discordBtnClicked
+                    discordPopUpIsFocused = false
+                    discordPopUp(discordPopUpIsFocused)
+                    console.log("ttt")
+                    discordBtnClicked = false
+                }
+            })
+        }
+        document.body.onmousedown = (e) => {
+            if (discordPopUpIsFocused && !discordBtnClicked) { // && !discordBtnClicked
+                discordPopUpIsFocused = false
+                discordPopUp(discordPopUpIsFocused)
+                console.log("ttt")
+                discordBtnClicked = false
+            }
+            mouseIsDown = true
+            mouseStart = [e.clientX, e.clientY]
+            prev = [0, 0]
+
+        }
+        document.body.onmouseup = () => { mouseIsDown = false }
+        // cursor movement
+
+        document.body.onmousemove = function (e) {
+
+
+            if (mouseIsDown && !discordPopUpIsFocused) {
+
+
+                // console.log(e.clientX - mouseStart[0],  - )
+
+
+
+                pos = [mouseStart[0] - e.clientX, mouseStart[1] - e.clientY]
+
+                pos = pos.map(x => x)
+                console.log()
+                // console.log(pos[0]-prev[0])
+                window.scrollBy(pos[0] - prev[0], pos[1] - prev[1])
+                // window.scrollBy(pos[0] - prev[0], pos[1] - prev[1])
+                prev = pos
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

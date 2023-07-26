@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info LK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sideBar">
+        <div class="logoAName">
+            Info LK
+            <!-- <img src="src/Capture-2023-05-22-123736.png" style="width:120px"> -->
+        </div>
+        <div class="sideMenu" id="sideMenu">
+            <input class="search" type="text" id="search" onkeydown="search(event)" placeholder="Search"
+                autocomplete="off" />
+            <div id="sideBarList" style="padding-bottom: 10px;">
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="mainWindow">
+
+
+    </div>
+    <script>
+        //load everything
+        loadMenu()
+        loadModules()
+
+        function diaShow(event, next) {
+            // find active img
+            lookedforId = (event.target.id).slice(0, -7);
+            lookedforId = lookedforId + "Bilder";
+            // get active img
+            let activeImg = document.querySelector(`.bilder[id=${lookedforId}] img[style='display: block;']`);
+            bilderChildren = document.getElementById(lookedforId).children
+      
+            // find active img in children and rotate
+            for (i = 0; i < bilderChildren.length; i++) {
+                if (bilderChildren[i] == activeImg) {
+                    console.log("found active img")
+                    activeImg.style.display = "none";
+                    if (next) {
+                        i == bilderChildren.length - 2 ? bilderChildren[0].style.display = "block" : bilderChildren[i + 1].style.display = "block";
+                    }
+                    else {
+                        i == 0 ? bilderChildren[bilderChildren.length - 2].style.display = "block" : bilderChildren[i - 1].style.display = "block";
+                    }
+                    break;
+                }
+            }
+
+
+
+        }
+        async function loadMenu() {
+            response = await fetch("data.json")
+            jsonData = await response.json()
+            // get sidebar
+            sideMenu = document.getElementById("sideMenu")
+            sideBarList = document.getElementById("sideBarList")
+            for (i in jsonData["themen"]) {
+                //themen
+                menuThemaDiv = document.createElement("div")
+                menuThemaDiv.classList.add("menuThema")
+                menuThemaNameDiv = document.createElement("div")
+                menuThemaNameDiv.innerHTML = jsonData["themen"][i]["name"]
+                menuThemaNameDiv.id = jsonData["themen"][i]["name"] + "M"
+                menuThemaDiv.appendChild(menuThemaNameDiv)
+                menuThemaDiv.id = jsonData["themen"][i]["name"] + "M"
+                menuThemaDiv.addEventListener("click", function (event) {
+                    console.log(`scroll to ${(event.target.id).slice(0, -1).replaceAll(" ","_")}`)
+                    mainWindow = document.querySelector(".mainWindow")
+                    topOffset = document.getElementById((event.target.id).slice(0, -1).replaceAll(" ","_")).offsetTop - 60
+
+                    document.querySelector(".mainWindow").scrollTo({ top: topOffset, behavior: "smooth", block: "center" })
+                })
+                for (ii in jsonData["themen"][i]["unterThema"]) {
+                    //unterthemen
+                    menuUnterThemaDiv = document.createElement("div")
+                    menuUnterThemaDiv.classList.add("menuItem")
+                    menuUnterThemaDiv.innerHTML = jsonData["themen"][i]["unterThema"][ii]["name"]
+                    menuUnterThemaDiv.id = jsonData["themen"][i]["unterThema"][ii]["name"] + "M"
+
+                    menuThemaDiv.appendChild(menuUnterThemaDiv)
+                }
+
+                sideBarList.appendChild(menuThemaDiv)
+            }
+        }
+        async function loadModules() {
+            response = await fetch("data.json")
+            jsonData = await response.json()
+            // get main window
+            mainWindow = document.querySelector(".mainWindow")
+            for (thema in jsonData["themen"]) {
+                currentThema = jsonData["themen"][thema]
+                themaDiv = document.createElement("div")
+                // titel des Thema
+                titleDiv = document.createElement("div")
+                titleDiv.innerHTML = currentThema["name"]
+                titleDiv.id = currentThema["name"]
+                titleDiv.classList.add("titel")
+                themaDiv.appendChild(titleDiv)
+
+                //unterthemen
+                for (unterThema in currentThema["unterThema"]) {
+                    currentUnterThema = currentThema["unterThema"][unterThema]
+
+                    switch (currentUnterThema["modul"]) {
+                        case "textUndBilder":
+                            unterThemaDiv = bildUndText(currentUnterThema)
+                            break;
+                        default:
+                            unterThemaDiv = nurText(currentUnterThema)
+
+                            break;
+                    }
+                    themaDiv.appendChild(unterThemaDiv)
+
+
+                }
+                mainWindow.appendChild(themaDiv)
+
+            }
+            // bottom offset for better scrolling
+
+            document.querySelector(".mainWindow").children[document.querySelector(".mainWindow").children.length - 1].style.marginBottom = "20vh"
+        }
+        function bildUndText(data) {
+            unterThemaDiv = document.createElement("div")
+            unterThemaDiv.classList.add("unterThema")
+            nameVonUnterThema = data["name"].replaceAll(" ", "_")
+
+            unterThemaDiv.innerHTML = `
+            <div class="bildUndText">
+
+<div class="textContainer">
+    <div class="thema">
+        <div class="titel" id="${nameVonUnterThema}">
+            ${data["name"]}
+        </div>
+        <div class="beschreibung">
+            ${data["beschreibung"]}
+        </div>
+    </div>
+</div>
+<div class="bilderContainer">
+    <div class="bilder" id="${nameVonUnterThema}Bilder">
+
+
+
+
+    </div>
+    <div class="diaButtonContainer">
+        <button id="${nameVonUnterThema}ButtonB" class="diaShowButton"
+            onclick="diaShow(event,false)">back</button>
+        <button id="${nameVonUnterThema}ButtonN" class="diaShowButton next"
+            onclick="diaShow(event,true)">next</button>
+    </div>
+</div>
+</div>
+            `;
+            if (data["bilder"].length == 1) {
+                unterThemaDiv.querySelector(`#${nameVonUnterThema}ButtonB`).style.display = "none"
+                unterThemaDiv.querySelector(`#${nameVonUnterThema}ButtonN`).style.display = "none"
+            }
+
+            for (i = 0; i < data["bilder"].length; i++) {
+                // wenn es das erste bild ist dann display block
+                if (i == 0) {
+
+                    unterThemaDiv.querySelector(`#${nameVonUnterThema}Bilder`).innerHTML += `<img src="src/bilder/${data["name"].replaceAll(" ", "_")}/${data["bilder"][i]}.png" style="display: block;" alt="${nameVonUnterThema}">`
+
+                }
+                unterThemaDiv.querySelector(`#${nameVonUnterThema}Bilder`).innerHTML += `<img src="src/bilder/${data["name"].replaceAll(" ", "_")}/${data["bilder"][i]}.png" alt="${nameVonUnterThema}">`
+            }
+
+
+            return unterThemaDiv
+
+        }
+
+        function nurText(data) {
+            unterThemaDiv = document.createElement("div")
+            unterThemaDiv.classList.add("unterThema")
+            nameVonUnterThema = data["name"]
+
+            unterThemaDiv.innerHTML = `
+                <div class="nurText">
+                    <div class="textContainer">
+                        <div class="thema">
+                            <div class="titel" id="${nameVonUnterThema}">
+                                ${nameVonUnterThema}
+                            </div>
+                            <div class="beschreibung">
+                                ${data["beschreibung"]}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            `
+            return unterThemaDiv
+        }
+        function search(parsedObj) {
+            let searchObj = parsedObj.currentTarget.value + parsedObj.key;
+            let alleThemen = document.getElementById("sideBarList").getElementsByClassName("menuThema")
+            found = false
+            allHeaders = []
+            for (i = 0; i < alleThemen.length; i++) {
+                for (ii in (alleThemen[i].innerText).split("\n")) {
+                    allHeaders.push((alleThemen[i].innerText).split("\n")[ii])
+                }
+            }
+            for (i = 0; i < allHeaders.length; i++) {
+                if (searchObj.toLowerCase().startsWith(allHeaders[i].toLowerCase())) {
+                    topOffset = document.getElementById(allHeaders[i]).offsetTop - 60
+                    document.querySelector(".mainWindow").scrollTo({ top: topOffset, behavior: "smooth", block: "center" })
+                    console.log("found")
+                    found = true
+
+                }
+
+
+            }
+
+            if (!found) {
+                console.log("not found")
+                for (i = 0; i < allHeaders.length; i++) {
+                    if (allHeaders[i].toLowerCase().includes(searchObj.toLowerCase())) {
+                        topOffset = document.getElementById(allHeaders[i]).offsetTop - 60
+                        document.querySelector(".mainWindow").scrollTo({ top: topOffset, behavior: "smooth", block: "center" })
+                        console.log(allHeaders[i])
+                    }
+
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

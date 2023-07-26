@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    background-color: var(--color-primary);
+    padding-left: 50px;
+    margin-bottom: 50vh;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+:root {
+    /* fonts */
+    --font-poppins: Poppins;
+
+
+    /* Colors */
+    --color-primary: #201E20;
+    --color-button: #63d192;
+    --color-secondary: #4B4A4B;
+    --color-red: #ff2525;
+    --color-dimgray: #747474;
+
+    /* Gaps */
+    --gap-3xs: 10px;
+
+    /* Paddings */
+    --padding-xs: 12px;
+    --padding-8xs: 5px;
+    --padding-10xl: 29px;
+
+    /* border radiuses */
+    --br-23xl: 42px;
+    --br-4xl: 23px;
+    --br-10xs: 3px;
+}

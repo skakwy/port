@@ -65,7 +65,7 @@
             <div class="socialContainer">
                 <img src="src/Vector1.svg" onclick="window.open('github.com/skakwy/')" />
                 <img src="src/Vector.svg" onclick="window.open('linkedin.com/in/nils-l-12b31727a/')" />
-                <img src="src/exclude.svg" onclick="window.location = 'mailto:nils_0805@icloud.com'" />
+                <img src="src/exclude.svg" onclick="window.location = 'mailto:xyz@yourapplicationdomain.com'" />
             </div>
         </div>
         <div class="aboutContainer" id="personContainer">
@@ -190,18 +190,23 @@
                         <textarea name="message" required id="messageInput"
                             placeholder="Write your message here"></textarea>
                     </div>
+
+
                 </div>
-                <div style="display: flex;flex-direction:row;gap:30px;">
-                    <button>
-                     <div style="justify-self: center;width:100%;margin-top:0px">Send message</div>
-                    </button>
-                    <img style="height:52px" src="src/exclude.svg"
-                    onclick="window.location = 'mailto:nils_0805@icloud.com'" />
+                <input class="uploadInput" type="button">
+                <div style="display: flex;align-items:center">
+                    <img class="uploadIcon" src="src/backup.svg" />
+                    <label for="file" class="second"> Add an Attachment</label>
+                   
                 </div>
+                </input>
+                <button>
+                    <div style="justify-self: center;width:100%;margin-top:0px">Send message</div>
+                </button>
         </form>
 
     </div>
-
+  
     <script>
         document.addEventListener("scroll", () => {
             var scroll = window.scrollY;

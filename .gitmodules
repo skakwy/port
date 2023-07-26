@@ -1,0 +1,4 @@
+[submodule "planty"]
+	path = planty
+	url = https://github.com/skakwy/planty
+	branch = website

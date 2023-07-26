@@ -1,0 +1,67 @@
+{
+    "themen": [
+        {
+            "name": "Graphen",
+            "datum": "10.3-10.4",
+            "beschreibung": "Graphen sind cool",
+            "unterThema": [
+                {
+                    "name": "Tiefensuche",
+                    "beschreibung": "Tiefensuche ist cool",
+                    "datum": "10.3-15.3",
+                    "modul": "textUndBilder",
+                    "bilder": [
+                        "Tiefensuche4",
+                        "Tiefensuche5",
+                        "Tiefensuche6",
+                        "Tiefensuche7",
+                        "Tiefensuche8",
+                        "Tiefensuche9",
+                        "Tiefensuche10",
+                        "Tiefensuche11",
+                        "Tiefensuche12",
+                        "Tiefensuche13",
+                        "Tiefensuche14",
+                        "Tiefensuche15"
+                    ]
+                },
+                {
+                    "name": "Breitensuche",
+                    "beschreibung": "Breitensuche ist cool",
+                    "datum": "10.3-15.3",
+                    "modul": "textUndBilder",
+                    "bilder": [
+                        "Breitensuche1",
+                        "Breitensuche2",
+                        "Breitensuche3",
+                        "Breitensuche4",
+                        "Breitensuche5",
+                        "Breitensuche6",
+                        "Breitensuche7",
+                        "Breitensuche8"
+                    ]
+                },
+                {
+                    "name": "Breitensuche vs Tiefensuche",
+                    "beschreibung": "Breitensuche vs Tiefensuche ist cool",
+                    "datum": "10.3-15.3",
+                    "modul": "textUndBilder",
+                    "bilder": [
+                        "vergleich"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Netzwerke",
+            "datum": "12.4-22.5",
+            "beschreibung": "Netzwerke sind cool",
+            "unterThema": [
+                {
+                    "name": "netzwerk-aufbau",
+                    "beschreibung": "Aufbau eines Netzwerk"
+                }
+            ]
+        }
+    ]
+}
