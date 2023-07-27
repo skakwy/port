@@ -215,6 +215,8 @@ svg:hover {
     width: 40%;
     margin-top: 40px;
     align-self: center;
+    justify-content: center;
+    gap:50px
 }
 
 .mailContainer {
@@ -304,7 +306,9 @@ form button {
     width: 20px;
 
 }
-
+.mailCc{
+    margin-bottom: 50vh;
+}
 
 
 @media screen and (max-width: 600px) {
@@ -362,10 +366,6 @@ form button {
     .projectCon {
         flex-direction: row;
     }
-    .mailCc {
-        
-        margin-top: 120vh;
-    }
     .inputContainerItem{
         flex-direction: column;
         gap: 30px;
@@ -378,6 +378,7 @@ form button {
         justify-content: center;
     }
     .mailCc{
+        margin-top: 120vh;
         margin-bottom: 10vh;
     }
 
