@@ -65,10 +65,16 @@
             <div class="socialContainer">
                 <img src="src/Vector1.svg" onclick="window.open('github.com/skakwy/')" />
                 <img src="src/Vector.svg" onclick="window.open('linkedin.com/in/nils-l-12b31727a/')" />
-                <svg onclick="window.location = 'mailto:nils_0805@icloud.com'" width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M31 62C48.1208 62 62 48.1208 62 31C62 13.8792 48.1208 0 31 0C13.8792 0 0 13.8792 0 31C0 48.1208 13.8792 62 31 62ZM43.8 21.2727L31 29.4545L18.2 21.2727H43.8ZM18.2 24.5455L31 32.7273L43.8 24.5455V40.9091H18.2V24.5455Z" fill="white"/>
+               
+                <div>
+                    <svg  onclick="window.location = 'mailto:nils_0805@icloud.com'" width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M31 62C48.1208 62 62 48.1208 62 31C62 13.8792 48.1208 0 31 0C13.8792 0 0 13.8792 0 31C0 48.1208 13.8792 62 31 62ZM43.8 21.2727L31 29.4545L18.2 21.2727H43.8ZM18.2 24.5455L31 32.7273L43.8 24.5455V40.9091H18.2V24.5455Z"
+                            fill="white" />
                     </svg>
-                    
+                </div>
+
+
             </div>
         </div>
         <div class="aboutContainer" id="personContainer">
@@ -127,7 +133,7 @@
             </div>
         </div>
         <div class="projectContainer" id="projectContainer">
-            <div class="lable"><img class="projectIcon" src="src/grid-view.svg" />Projects</div>
+            <div class="lable"><img class="lableIcon" src="src/grid-view.svg" />Projects</div>
             <div class="container">
                 <div style="display: flex;flex-direction:column;">
                     <div class="title">Planty</div>
@@ -160,50 +166,56 @@
                 </div>
             </div>
         </div>
-        <form action="https://submit-form.com/TkleINNh" class="mailContainer" id="mailContainer">
-            <div class="lable"><img class="mailIcon" src="src/mail.svg" />Projects</div>
-            <div class="inputContainer">
-                <div class="inputContainerItem">
-                    <div class="inputItem">
-                        <div> Full name<span style="color: var(--color-red);">*</span></div>
-                        <input name="name" required id="fullNameInput" type="text" placeholder="Your Full Name" />
-                    </div>
-                    <div class="inputItem">
-                        <div> Email<span style="color: var(--color-red);">*</span></div>
-                        <input name="email" required id="emailInput" type="email" placeholder="Your email address" />
-                    </div>
-                </div>
-                <div class="inputContainerItem">
-                    <div class="inputItem">
-                        <div> Phone<span
-                                style="color: var(--color-secondary);font-size:16px;">&ThickSpace;&ThickSpace;(optional)</span>
+        <div>
+            <form action="https://submit-form.com/TkleINNh" class="mailContainer" id="mailContainer">
+                <div class="lable"><img class="lableIcon" src="src/mail.svg" />Contact me</div>
+                <div class="inputContainer">
+                    <div class="inputContainerItem">
+                        <div class="inputItem">
+                            <div> Full name<span style="color: var(--color-red);">*</span></div>
+                            <input name="name" required id="fullNameInput" type="text" placeholder="Your Full Name" />
                         </div>
-                        <input name="phoneNumber" id="phoneInput" type="tel" placeholder="Your Full Name" />
-                    </div>
-                    <div class="inputItem">
-                        <div> Subject<span
-                                style="color: var(--color-secondary);font-size:16px;">&ThickSpace;&ThickSpace;(optional)</span>
+                        <div class="inputItem">
+                            <div> Email<span style="color: var(--color-red);">*</span></div>
+                            <input name="email" required id="emailInput" type="email"
+                                placeholder="Your email address" />
                         </div>
-                        <input name="subject" id="subjectInput" type="text" placeholder="Your email address" />
                     </div>
-                </div>
+                    <div class="inputContainerItem">
+                        <div class="inputItem">
+                            <div> Phone<span
+                                    style="color: var(--color-secondary);font-size:16px;">&ThickSpace;&ThickSpace;(optional)</span>
+                            </div>
+                            <input name="phoneNumber" id="phoneInput" type="tel" placeholder="Your Full Name" />
+                        </div>
+                        <div class="inputItem">
+                            <div> Subject<span
+                                    style="color: var(--color-secondary);font-size:16px;">&ThickSpace;&ThickSpace;(optional)</span>
+                            </div>
+                            <input name="subject" id="subjectInput" type="text" placeholder="Your email address" />
+                        </div>
+                    </div>
 
-                <div class="inputItem">
-                    <div> Message<span style="color: var(--color-red);">*</span </div>
-                        <textarea name="message" required id="messageInput"
-                            placeholder="Write your message here"></textarea>
+                    <div class="inputItem">
+                        <div> Message<span style="color: var(--color-red);">*</span </div>
+                            <textarea name="message" required id="messageInput"
+                                placeholder="Write your message here"></textarea>
+                        </div>
                     </div>
-                </div>
-                <div style="display: flex;flex-direction:row;gap:30px;">
-                    <button>
-                     <div style="justify-self: center;width:100%;margin-top:0px">Send message</div>
-                    </button>
-                    <svg onclick="window.location = 'mailto:nils_0805@icloud.com'"  width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M31 62C48.1208 62 62 48.1208 62 31C62 13.8792 48.1208 0 31 0C13.8792 0 0 13.8792 0 31C0 48.1208 13.8792 62 31 62ZM43.8 21.2727L31 29.4545L18.2 21.2727H43.8ZM18.2 24.5455L31 32.7273L43.8 24.5455V40.9091H18.2V24.5455Z" fill="white"/>
+                    <div class="formButtonContainer" style="display: flex;flex-direction:row;gap:30px;">
+                        <button class="submitButton">
+                            <div style="justify-self: center;width:100%;margin-top:0px;color:black">Send message</div>
+                        </button>
+                        <svg onclick="window.location = 'mailto:nils_0805@icloud.com'" width="62" height="62"
+                            viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M31 62C48.1208 62 62 48.1208 62 31C62 13.8792 48.1208 0 31 0C13.8792 0 0 13.8792 0 31C0 48.1208 13.8792 62 31 62ZM43.8 21.2727L31 29.4545L18.2 21.2727H43.8ZM18.2 24.5455L31 32.7273L43.8 24.5455V40.9091H18.2V24.5455Z"
+                                fill="white" />
                         </svg>
-                        
-                </div>
-        </form>
+
+                    </div>
+            </form>
+        </div>
 
     </div>
 

@@ -40,7 +40,7 @@
     display: flex;
     flex-direction: column;
     gap: 30vh;
-    
+    overflow-x: hidden;
 
 }
 
@@ -48,7 +48,7 @@
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 30px
 }
 
 .lableIcon {
@@ -68,6 +68,7 @@
     border: 1px solid var(--color-secondary);
     gap: 10px;
     color: var(--color-secondary);
+    ;
     font-family: var(--font-poppins);
     font-weight: 700;
 }
@@ -95,18 +96,15 @@
 }
 
 /* scale animation for socialContainer */
-.socialContainer img,
-svg {
+.socialContainer img {
     transition: transform 0.5s ease-in;
 }
 
-.socialContainer img:hover,
-svg:hover {
+.socialContainer img:hover {
     transform: scale(1.1);
 }
 
-.socialContainer img:hover,
-svg:hover {
+.socialContainer img:hover {
     cursor: pointer;
 }
 
@@ -186,7 +184,7 @@ svg:hover {
     flex-direction: column;
     gap: 30px;
     color: white;
-    padding-right: 100px;
+    margin-right: 100px;
 }
 
 .projectContainer .container {
@@ -277,7 +275,7 @@ form button {
     border-radius: 2099px;
     outline: none;
     border: none;
-
+ 
     align-items: center;
 }
 
@@ -302,82 +300,5 @@ form button {
 .uploadIcon {
     height: 20px;
     width: 20px;
-
-}
-
-
-
-@media screen and (max-width: 600px) {
-    body {
-        padding-left: 15px;
-
-    }
-    
-    .controlbar {
-        display: none;
-    }
-
-    .title {
-        font-size: 25px;
-    }
-
-    .introductionContainer {
-        margin-top: 30px;
-        max-width: 80vw;
-
-    }
-
-    .text {
-        font-size: 18px;
-    }
-
-    .socialContainer {
-        width: 30%;
-     
-        gap: 30px
-    }
-
-    .socialContainer svg,
-    img {
-        width: 50px;
-        height: 50px;
-    }
-    .projectContainer{
-        max-width: 80vw;
-        margin-right: 0px;
-    }
-    .projectContainer .socialContainer{
-        align-items: flex-start;
-    }
-    .projectContainer .container {
-        flex-direction: column;
-        margin-top: 30px;
-        
-    }
-
-    .projectCon {
-        flex-direction: row;
-    }
-    .mailContainer {
-        position: static;
-        margin-top: 120vh;
-    }
-    .inputContainerItem{
-        flex-direction: column;
-        gap: 30px;
-    }
-    .submitButton{
-        width: 50vw;
-        font-size: 18px;
-    }
-    .formButtonContainer{
-        justify-content: center;
-    }
-    div{
-        margin-right: 0;
-        padding-right: 0;
-    }
-
-    
-   
+    margin-right: 20px
 }
