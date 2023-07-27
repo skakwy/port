@@ -116,7 +116,7 @@ svg:hover {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    max-width: 80vw;
+    max-width: 90vw;
 
 }
 
@@ -125,7 +125,7 @@ svg:hover {
     flex-direction: column;
     gap: 30px;
     color: white;
-
+    max-width: 100vw;
 }
 
 .resumeItem {
@@ -186,7 +186,7 @@ svg:hover {
     flex-direction: column;
     gap: 30px;
     color: white;
-    padding-right: 100px;
+    margin-right: 100px;
 }
 
 .projectContainer .container {
@@ -310,9 +310,11 @@ form button {
 @media screen and (max-width: 600px) {
     body {
         padding-left: 15px;
-
+ 
     }
-    
+    .mainContainer{
+        overflow-x: hidden;
+    }
     .controlbar {
         display: none;
     }
@@ -332,9 +334,10 @@ form button {
     }
 
     .socialContainer {
-        width: 30%;
-     
-        gap: 30px
+        width: 100vw;
+        gap: 30px;
+        margin-left: -15px;
+        justify-content: center;
     }
 
     .socialContainer svg,
@@ -343,11 +346,12 @@ form button {
         height: 50px;
     }
     .projectContainer{
-        max-width: 80vw;
+        max-width: 90vw;
         margin-right: 0px;
     }
     .projectContainer .socialContainer{
-        align-items: flex-start;
+        width: 100vw;
+       
     }
     .projectContainer .container {
         flex-direction: column;
@@ -358,8 +362,8 @@ form button {
     .projectCon {
         flex-direction: row;
     }
-    .mailContainer {
-        position: static;
+    .mailCc {
+        
         margin-top: 120vh;
     }
     .inputContainerItem{
@@ -373,9 +377,8 @@ form button {
     .formButtonContainer{
         justify-content: center;
     }
-    div{
-        margin-right: 0;
-        padding-right: 0;
+    .mailCc{
+        margin-bottom: 10vh;
     }
 
     

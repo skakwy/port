@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-color: var(--color-primary);
     padding-left: 50px;
-    margin-bottom: 50vh;
+
     scroll-behavior: smooth;
     -ms-overflow-style: none;
     scrollbar-width: none;
