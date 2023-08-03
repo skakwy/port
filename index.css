@@ -282,7 +282,9 @@ form button {
 
     align-items: center;
 }
-
+form button:hover{
+    cursor: pointer;
+}
 .uploadInput {
     background-color: transparent;
     width: 300px;
